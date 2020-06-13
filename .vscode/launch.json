@@ -1,0 +1,14 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "TS-Run",
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceRoot}/dist/Main.js",
+            "args": [],
+            "cwd": "${workspaceRoot}",
+            "protocol": "inspector"
+        }
+    ]
+}
