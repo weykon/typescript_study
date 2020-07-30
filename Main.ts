@@ -1,12 +1,8 @@
-import { Decorators } from './PlayGround'
-
+import { person } from './Decorators/DecoratorTest'
 function main() {
     console.log('程序开始...')
-
-    new Decorators.C().method()
-
+    let a = new person()
+    console.log(a)
 }
-
-
 
 main()
