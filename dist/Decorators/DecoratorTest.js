@@ -6,7 +6,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.person = void 0;
+exports.mObject = exports.ObjectList = exports.person = void 0;
+console.log('------------------------------------------\n\n\n\n\n\n');
 //------函数装饰器-----
 function BadGuySkin(constructor) {
     console.log('to Addtition BEFORE?');
@@ -19,17 +20,40 @@ function BadGuySkin(constructor) {
 }
 function normalBody() {
     console.log('eat food~');
+    return function (a, b, c) {
+        console.log('\n', a, '\n', b, '\n', c);
+        console.log('done done', typeof b, c.value.toString());
+    };
 }
 let person = class person {
     constructor() {
         console.log('this is normal person');
     }
     Wear() {
+        console.log('wear');
+        return 'wear done';
     }
 };
+__decorate([
+    normalBody()
+], person.prototype, "Wear", null);
 person = __decorate([
     BadGuySkin
 ], person);
 exports.person = person;
+exports.ObjectList = new Array();
+function CreateFirst(target) {
+    exports.ObjectList.push(target);
+}
+let mObject = class mObject {
+    constructor() {
+        this.name = 'o';
+        console.log('fuck create me');
+    }
+};
+mObject = __decorate([
+    CreateFirst
+], mObject);
+exports.mObject = mObject;
 //-------------------
 //# sourceMappingURL=DecoratorTest.js.map
