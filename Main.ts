@@ -1,3 +1,4 @@
+import * as BlackBorad from './Decorators/case2/BlackBorad'
 import { person } from './Decorators/DecoratorTest'
 import * as Decora from './Decorators/DecoratorTest'
 import PlayerComp from './Decorators/case1/PlayerComp';
@@ -10,6 +11,7 @@ function main() {
         let a = new e();
         console.log(a.name)
     })
+
     console.log('----------end')
 }
 
@@ -26,6 +28,10 @@ function mainCase1() {
     console.log('end....')
 }
 
+function mainCase2() {
+    console.log('程序开始')
+    let a = new BlackBorad.Normal()
+    console.log('log~~~~: ', a.prop)
+}
 
-
-mainCase1()
+mainCase2()
