@@ -1,24 +1,13 @@
 "use strict";
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
-    Object.defineProperty(o, "default", { enumerable: true, value: v });
-}) : function(o, v) {
-    o["default"] = v;
-});
 var __importStar = (this && this.__importStar) || function (mod) {
     if (mod && mod.__esModule) return mod;
     var result = {};
-    if (mod != null) for (var k in mod) if (k !== "default" && Object.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
-    __setModuleDefault(result, mod);
+    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
+    result["default"] = mod;
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+const BlackBorad = __importStar(require("./Decorators/case2/BlackBorad"));
 const Decora = __importStar(require("./Decorators/DecoratorTest"));
 const Comp_1 = require("./Decorators/case1/Comp");
 function main() {
@@ -37,5 +26,10 @@ function mainCase1() {
     });
     console.log('end....');
 }
-mainCase1();
+function mainCase2() {
+    console.log('程序开始');
+    let a = new BlackBorad.Normal();
+    console.log('log~~~~: ', a.prop);
+}
+mainCase2();
 //# sourceMappingURL=Main.js.map
