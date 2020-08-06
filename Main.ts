@@ -4,6 +4,7 @@ import * as Decora from './Decorators/DecoratorTest'
 import PlayerComp from './Decorators/case1/PlayerComp';
 import EnemyComp from './Decorators/case1/EnemyComp';
 import { CompList } from './Decorators/case1/Comp'
+import Greeter from './Decorators/case3/MethodDecrat'
 function main() {
     console.log('程序开始...')
 
@@ -34,4 +35,11 @@ function mainCase2() {
     console.log('log~~~~: ', a.prop)
 }
 
-mainCase2()
+function mainCase3() {
+    console.log('程序开始')
+    let a = new Greeter('Kong')
+    console.log('log~~~~: ',)
+    a.greet('Weykon')
+}
+
+mainCase3()

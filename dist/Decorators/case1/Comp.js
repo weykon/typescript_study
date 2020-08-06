@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.Comp = exports.CompLog = exports.CompList = void 0;
 exports.CompList = new Array();
 function CompLog(target) {
     exports.CompList.push(target);
