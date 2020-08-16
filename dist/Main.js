@@ -53,5 +53,4 @@ function mainCase3() {
     console.log('log~~~~: ');
     a.greet('Weykon');
 }
-mainCase3();
 //# sourceMappingURL=Main.js.map
