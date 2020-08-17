@@ -122,7 +122,7 @@ type PartialPerson = Partial(Person)
 比如: 
 
 ``` typescript
-type ComponentType<P = {}> = ComponentClass<P> | FunctionComponent<P>
+type ComponentType< P={} > = ComponentClass<P> | FunctionComponent<P>
 ```
 
 虽然我暂时还没看懂这一句。我们继续向下看...
@@ -174,26 +174,34 @@ function trace<T>(arg : T): T{
     return arg;
 }
 ```
+
 若我想用这句话打印传进来参数的size属性呢？就像是我传进来了一个长方形，我想用这个长方形底下的size属性。
 ---
-+ 在我们js思维里面，不是直接就：
-```javascript
-function trace(someType){
+
+* 在我们js思维里面，不是直接就：
+
+``` javascript
+function trace(someType) {
     console.log(someType.size)
     return someType.size;
 }
 ```
-+ 吗？ 
+
+* 吗？ 
+
 ---
 不过按照这么写，这里面就没有泛型了呀。所以我们按照ts来写：
-```typescript
+
+``` typescript
 function trace<T>(arg: T): T{
     console.log(arg.size);  // Error: Property 'size' doesn't exist on type 'T'
     return arg;
 }
 ```
+
 这里面是报错的呀。是因为 T 在这个阶段可以是任何类型，而且连any这个类型都包括，它都不知道属不属于any了。那么我们就将 参数 类型限定下来。那么所谓的「类型约束」如何实现下来呢？
-```typescript
+
+``` typescript
 interface Sizeable {
     size: number;
 }
@@ -202,4 +210,5 @@ function trace<T extends Sizeable>(arg: T):T{
     return arg;
 }
 ```
+
 我们现在的解读： 现在的 T 不再是任意类型，而是被实现接口的 shape。

@@ -8,17 +8,20 @@ class mHuman extends mRole {
     Action() { 1; }
 }
 class mMonster extends mRole {
-    Action() { 2; }
+    Action() {
+        '2';
+    }
 }
 function getAction(node) {
     return node.Action;
 }
-function genraicityGetAction(type) {
-    return type.Action;
+function genraicityGetAction(_type, nOrS) {
+    console.log(nOrS);
+    // return _type.Action
 }
 let a = new mHuman();
 let aAction = getAction(a);
 let b = new mMonster();
-let bAction = genraicityGetAction(b);
-console.log(aAction, bAction);
+let bAction = genraicityGetAction(b, b);
+console.log('done');
 //# sourceMappingURL=初体验.js.map
