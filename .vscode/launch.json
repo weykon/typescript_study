@@ -5,7 +5,7 @@
             "name": "TS-Run",
             "type": "node",
             "request": "launch",
-            "program": "${workspaceRoot}/dist/genericity/初体验.js",
+            "program": "${workspaceRoot}/dist/Decorators/练习-管理器注册.js",
             "args": [],
             "cwd": "${workspaceRoot}",
             "protocol": "inspector",
