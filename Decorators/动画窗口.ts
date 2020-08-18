@@ -47,6 +47,6 @@ class Msg {
             curPromise = curPromise.then(async () => await element())
         });
         curPromise
-            .then(() => console.log('ShowDone!'));
+            .then(() => console.log('ShowDone!'))
     }
 }

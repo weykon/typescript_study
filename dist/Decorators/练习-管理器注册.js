@@ -8,27 +8,50 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 class CodeThing {
 }
 function ManagerRegister(target) {
-    Manager.InitList.push(target.prototype.constructor);
+    Manager.CtorList.push(target.prototype.constructor);
 }
 class Manager {
     constructor() {
-        console.log(Manager.InitList);
         Manager.Inst = this;
-        Manager.InitList.forEach(e => {
+        Manager.CtorList.forEach(e => {
             this[e.name] = new e();
+            Manager.ManagersName.push(e.name);
         });
-        console.log(Manager.Inst);
+    }
+    Init() {
+        let OriginList = Manager.ManagersName.map(u => this[u]['Init']);
+        const TopFunction = () => {
+            console.log('Top Func');
+        };
+        const BackFunction = () => {
+            console.log('Back Func');
+        };
+        Manager.ManagersName.map((u, i) => this[u]['Init'] = () => {
+            TopFunction();
+            OriginList[i]();
+            BackFunction();
+        });
     }
 }
-Manager.InitList = [];
+Manager.CtorList = [];
+Manager.ManagersName = [];
 let ObjectManager = class ObjectManager {
     constructor() {
         this.test = 1;
     }
-    Init() { }
+    Init() { console.log('Origin Object'); }
 };
 ObjectManager = __decorate([
     ManagerRegister
 ], ObjectManager);
+let TerrainManager = class TerrainManager {
+    constructor() {
+        this.Data = {};
+    }
+    Init() { console.log('Origin Terrain'); }
+};
+TerrainManager = __decorate([
+    ManagerRegister
+], TerrainManager);
 new Manager();
 //# sourceMappingURL=练习-管理器注册.js.map
