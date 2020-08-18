@@ -46,13 +46,3 @@ export class Normal {
 
 
 //---------------------
-function addCopm(comp:string) {
-    return function (target: any) {
-        
-    }
-}
-
-@addCopm('skin')
-function Monkey() {
-    console.log('normal monkey')
-}

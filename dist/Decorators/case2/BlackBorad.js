@@ -6,6 +6,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.Normal = void 0;
 function addAge(args) {
     return function (target) {
         target.prototype.age = args;
@@ -35,9 +36,13 @@ let Normal = class Normal {
         console.log('Normal ctor...');
         console.log('Normal ctor done .... ');
     }
+    canModifyFunc() {
+        console.log('OriginFunc');
+    }
 };
 Normal = __decorate([
     dcrat(2)
 ], Normal);
 exports.Normal = Normal;
+//---------------------
 //# sourceMappingURL=BlackBorad.js.map
