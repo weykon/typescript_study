@@ -18,14 +18,10 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 const BlackBorad = __importStar(require("./Decorators/case2/BlackBorad"));
 const Decora = __importStar(require("./Decorators/DecoratorTest"));
 const Comp_1 = require("./Decorators/case1/Comp");
-const MethodDecrat_1 = __importDefault(require("./Decorators/case3/MethodDecrat"));
 function main() {
     console.log('程序开始...');
     Decora.ObjectList.forEach(e => {
@@ -49,7 +45,7 @@ function mainCase2() {
 }
 function mainCase3() {
     console.log('程序开始');
-    let a = new MethodDecrat_1.default('Kong');
+    let a = new Greeter('Kong');
     console.log('log~~~~: ');
     a.greet('Weykon');
 }
