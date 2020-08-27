@@ -6,8 +6,8 @@ namespace oneTaste {
     class mHuman extends mRole { Action() { 1; } }
     class mMonster extends mRole { Action() { '2'; } }
 
-    type selectType = mHuman | mMonster
-    function getAction(node: selectType) {
+    type select = mHuman | mMonster
+    function getAction(node: any) {
         return node.Action
     }
 

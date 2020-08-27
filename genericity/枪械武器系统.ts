@@ -7,6 +7,7 @@ abstract class Weapon {
         this.comps.push(newComp)
         return newComp
     }
+  
 }
 
 abstract class WeaponComp {
