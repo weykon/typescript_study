@@ -1,25 +1,29 @@
-abstract class Weapon {
-    abstract comps: Array<WeaponComp>
+abstract class Weapon<T>{
+    abstract comps: Array<WeaponComp<T>>
     abstract name: string
-    public AddComponent<T extends WeaponComp>() {
-        let newCompType = WeaponComp as { new(): T }
+    public AddComponent<T extends WeaponComp<T>>() {
+
         let newComp = new newCompType()
         this.comps.push(newComp)
         return newComp
     }
-  
+
 }
 
-abstract class WeaponComp {
+abstract class WeaponComp<T> {
     abstract name: string
+    constructor(protected ctor: { new(): T }) { }
+    public WeaponCopm() {
+        return new this.ctor();
+    }
 }
 
 enum WeaponEnum {
 
 }
 
-class AK47 extends Weapon {
-    comps: Array<WeaponComp> = [];
+class AK47 extends Weapon<AK47>{
+    comps: Array<WeaponComp<AK47>> = [];
     name!: string
     constructor() {
         super()
@@ -48,17 +52,21 @@ class WeaponData<T> {
     }
 }
 
-abstract class SightOption extends WeaponComp {
+abstract class SightOption<T> extends WeaponComp<SightOption<T>> {
     abstract name: string
+    constructor(protected ctor: {new():T}) { super(SightOption.prototype.ctor) }
+    public WeaponCopm() {
+        return new this.ctor();
+    }
 }
 
 class ZoomSight extends SightOption {
-    constructor(public name: string, public zoom: number) {
-        super()
+    constructor(private ctor: { new(): ZoomSight }, public name: string, public zoom: number) {
+        super(ctor)
     }
 }
 
 let ak = new AK47()
 console.log(ak)
-ak.AddComponent<ZoomSight>()
+ak.AddComponent<WeaponComp<ZoomSight>>()
 console.log(ak)

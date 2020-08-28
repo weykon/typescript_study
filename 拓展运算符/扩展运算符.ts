@@ -33,7 +33,7 @@ namespace AdditionSymbol {
     }
 
 
-    addListener<Event<LashiEvent>>(new LashiEvent)
+    addListener<Event<LashiEvent>>(new LashiEvent,'1',new LashiEvent().options)
 }
 
 
