@@ -18,7 +18,7 @@ namespace GenericityClassGetCtor {
         }
     }
 
-    let buyAIpad = new Buy<AppleDevice<IPad>>()
+    let buyAIpad = new Buy<AppleDevice<IPad>>(IPad.prototype)
 
     //类比?
     class AddComponent<T>  {
@@ -32,4 +32,17 @@ namespace GenericityClassGetCtor {
             return AddComponent
         }
     }
+
+
+    //-------------典型-------------
+    class Create<T>{
+        constructor(private ctor: { new(): T }) {
+        }
+        public GetNewInst() {
+            return new this.ctor()
+        }
+    }
+    let ipadCreator = new Create(IPad)
+    ipadCreator.GetNewInst()
+    //-------------典型--------完----
 }   
