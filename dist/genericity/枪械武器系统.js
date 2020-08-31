@@ -1,13 +1,18 @@
 "use strict";
 class Weapon {
     AddComponent() {
-        let newCompType = WeaponComp;
         let newComp = new newCompType();
         this.comps.push(newComp);
         return newComp;
     }
 }
 class WeaponComp {
+    constructor(ctor) {
+        this.ctor = ctor;
+    }
+    WeaponCopm() {
+        return new this.ctor();
+    }
 }
 var WeaponEnum;
 (function (WeaponEnum) {
@@ -36,10 +41,18 @@ class WeaponData {
     }
 }
 class SightOption extends WeaponComp {
+    constructor(ctor) {
+        super(SightOption.prototype.ctor);
+        this.ctor = ctor;
+    }
+    WeaponCopm() {
+        return new this.ctor();
+    }
 }
 class ZoomSight extends SightOption {
-    constructor(name, zoom) {
-        super();
+    constructor(ctor, name, zoom) {
+        super(ctor);
+        this.ctor = ctor;
         this.name = name;
         this.zoom = zoom;
     }

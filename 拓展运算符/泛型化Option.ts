@@ -20,19 +20,6 @@ namespace GenericityOption {
         }
     }
 
-
-    class TestSameNameFunc {
-        constructor() {
-            console.log('1')
-        }
-
-        public TestSameNameFunc() {
-            console.log('2')
-        }
-    }
-
-
-    let test = new TestSameNameFunc()
-
+    let m_event = new 
 
 }

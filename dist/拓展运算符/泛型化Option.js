@@ -2,17 +2,19 @@
 var GenericityOption;
 (function (GenericityOption) {
     class Event {
+        constructor(ctor) {
+            this.ctor = ctor;
+        }
+        Event() {
+            return new this.ctor();
+        }
     }
     class GetUpEvent extends Event {
-    }
-    class TestSameNameFunc {
-        constructor() {
-            console.log('1');
-        }
-        TestSameNameFunc() {
-            console.log('2');
+        Event() {
+            let t = GetUpEvent;
+            return new t();
         }
     }
-    let test = new TestSameNameFunc();
+    let m_event = new ;
 })(GenericityOption || (GenericityOption = {}));
 //# sourceMappingURL=泛型化Option.js.map
