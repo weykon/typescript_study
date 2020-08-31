@@ -20,6 +20,6 @@ var aTYPE;
     }
     let man = new Man();
     let woman = new Woman();
-    FixInput(man);
+    FixInput(woman);
 })(aTYPE || (aTYPE = {}));
 //# sourceMappingURL=高级类型.js.map

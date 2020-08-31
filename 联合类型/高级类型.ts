@@ -21,5 +21,5 @@ namespace aTYPE {
 
     let man = new Man();
     let woman = new Woman();
-    FixInput(man)
+    FixInput(woman)
 }
