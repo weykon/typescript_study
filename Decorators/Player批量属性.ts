@@ -11,8 +11,6 @@ let PropMap = new Map<string, any>()
 PropMap.set('name', 'asd')
 PropMap.set('ts', 2)
 
-
-
 propk.forEach((e, i) => {
     (<any>obj)[e] = propv[i]
 })

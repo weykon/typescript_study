@@ -10,19 +10,29 @@ function FuncLog(targetPropertype, propName, descriptor) {
     descriptor.value = function () {
         console.log(`@ Start--------> ...${propName} -function`);
         let t0 = new Date().getTime();
-        ori(targetPropertype);
+        console.log(targetPropertype);
+        ori.bind(targetPropertype)();
         let t1 = new Date().getTime();
         console.log(`@ End--------> ... ${propName} -function\n ${(t1 - t0) / 1000}s`);
     };
 }
 class SomeClass {
-    Todo(a) {
-        console.log('1', a);
+    constructor(index) {
+        this.index = index;
+        this.index = index;
+    }
+    Todo() {
+        console.log('index', this.index);
     }
 }
 __decorate([
     FuncLog
 ], SomeClass.prototype, "Todo", null);
+//@ts-ignore
+let aa = window.aa = new SomeClass(4);
+//@ts-ignore
+window.bb = new SomeClass(7);
+aa.Todo();
 // // 装饰器工厂，根据传入的参数调用相应的装饰器
 // function log(...args: any[]) {
 //     switch (args.length) {
