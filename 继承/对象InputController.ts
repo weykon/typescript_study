@@ -39,5 +39,5 @@ function instAsonClass<T extends gCtrl<T>>(t: { new(): T }) {
     return new t();
 }
 
-let instAson = instAsonClass<sonGCtrl>(sonGCtrl)
+let instAson = instAsonClass(sonGCtrl)
 console.log(instAson)
