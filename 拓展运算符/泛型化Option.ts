@@ -20,6 +20,5 @@ namespace GenericityOption {
         }
     }
 
-    let m_event = new 
 
 }

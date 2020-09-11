@@ -48,10 +48,10 @@ class test {
     }
 }
 
-let a = new test(100000)
-a.ifFunc(); a.Nsymbol();
-let _b = new test(100000000)
-_b.ifFunc(); _b.Nsymbol();
+let a = new test(1000000000);
+a.ifFunc();
+a.Nsymbol();
+
 
 // 结论： && 更快
 

@@ -56,11 +56,8 @@ __decorate([
 __decorate([
     FuncLog2()
 ], test.prototype, "Nsymbol", null);
-let a = new test(100000);
+let a = new test(1000000000);
 a.ifFunc();
 a.Nsymbol();
-let _b = new test(100000000);
-_b.ifFunc();
-_b.Nsymbol();
 // 结论： && 更快
 //# sourceMappingURL=Test&&IF.js.map

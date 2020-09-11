@@ -15,6 +15,5 @@ var GenericityOption;
             return new t();
         }
     }
-    let m_event = new ;
 })(GenericityOption || (GenericityOption = {}));
 //# sourceMappingURL=泛型化Option.js.map
