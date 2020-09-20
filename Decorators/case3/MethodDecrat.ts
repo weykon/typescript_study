@@ -1,4 +1,4 @@
-export default class Greeter {
+ class Greeter3 {
     greeting: string;
     constructor(message: string) {
         this.greeting = message;
@@ -6,8 +6,9 @@ export default class Greeter {
 
     @enumerable(false)
     greet(input: string) {
-        console.log('中间')
+        console.log('---中间--')
         console.log("Hello, " + this.greeting, input)
+        console.log('---中间--')
     }
 }
 
@@ -25,3 +26,6 @@ function enumerable(value: boolean) {
 
     };
 }
+
+let gre = new Greeter3('what is this')
+gre.greet('dame back')

@@ -1,0 +1,1 @@
+{"version":3,"file":"不带括号参数试试函数装饰器.js","sourceRoot":"","sources":["../../Decorators/不带括号参数试试函数装饰器.ts"],"names":[],"mappings":";;;;;;;AAAA,IAAU,SAAS,CAclB;AAdD,WAAU,SAAS;IAGf,SAAS,aAAa,CAAC,MAAW;QAC9B,OAAO,CAAC,GAAG,CAAC,WAAW,EAAE,MAAM,CAAC,CAAA;IACpC,CAAC;IAED,MAAM,SAAS;QAGX,IAAI;QAEJ,CAAC;KACJ;IAHG;QADC,aAAa,CAAC,cAAc;yCAG5B;AAET,CAAC,EAdS,SAAS,KAAT,SAAS,QAclB"}
