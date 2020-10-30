@@ -18,7 +18,7 @@ namespace GenericityClassGetCtor {
         }
     }
 
-    let buyAIpad = new Buy<AppleDevice<IPad>>(IPad.prototype)
+    // let buyAIpad = new Buy<AppleDevice<IPad>>(IPad.prototype)
 
     //类比?
     class AddComponent<T>  {

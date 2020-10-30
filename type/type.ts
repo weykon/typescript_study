@@ -13,6 +13,5 @@ function getActiond<TypeRole>(t: TypeRole) {
     console.log('action', t)
 }
 
-
 getActiond<Human>(n)
 console.log(n instanceof Monster, n instanceof Human, typeof n)

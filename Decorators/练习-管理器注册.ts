@@ -15,7 +15,7 @@ class Manager {
             Manager.ManagersName.push(e.name)
         })
     }
-    public static CtorList: Array<DateConstructor> = []
+    public static CtorList: Array<{ new(): any }> = []
     public static Inst: Manager
     public static ManagersName: Array<string> = []
     public Init() {

@@ -9,7 +9,6 @@ function inputSomeThing<T>(name: SigleParamOrParamArray<T>) {
         : console.log(name);
 }
 
-
 type NameOrNameArray = string | string[];
 
 function createName(name: NameOrNameArray) {

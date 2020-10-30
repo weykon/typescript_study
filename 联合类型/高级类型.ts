@@ -2,23 +2,19 @@ console.log('asd')
 namespace aTYPE {
     type common = Man | Woman
     function FixInput<common>(t: common) {
-        console.log('1')
         let input = t as unknown as { new(): common }
         input instanceof Man ?
-            console.log('man', (<Man>input).dick) :
-
+            console.log('man', (<Man>input).mouse) :
             input instanceof Woman ?
-                console.log('woman', (<Woman>input).breast) :
+                console.log('woman', (<Woman>input).eyes) :
                 console.log('unknown')
     }
-
     class Man {
-        public dick: number = 1
+        public mouse: number = 1
     }
     class Woman {
-        public breast!: number
+        public eyes!: number
     }
-
     let man = new Man();
     let woman = new Woman();
     FixInput(woman)

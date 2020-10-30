@@ -1,11 +1,9 @@
 abstract class Weapon<T>{
     abstract comps: Array<WeaponComp<T>>
     abstract name: string
-    public AddComponent<T extends WeaponComp<T>>() {
-
-        let newComp = new newCompType()
-        this.comps.push(newComp)
-        return newComp
+    public AddComponent<T extends WeaponComp<T>>(t: T) {
+        this.comps.push(t)
+        return t
     }
 
 }
@@ -54,7 +52,7 @@ class WeaponData<T> {
 
 abstract class SightOption<T> extends WeaponComp<SightOption<T>> {
     abstract name: string
-    constructor(protected ctor: {new():T}) { super(SightOption.prototype.ctor) }
+    constructor(protected ctor: { new(): T }) { super(SightOption.prototype.ctor) }
     public WeaponCopm() {
         return new this.ctor();
     }

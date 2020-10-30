@@ -1,9 +1,8 @@
 "use strict";
 class Weapon {
-    AddComponent() {
-        let newComp = new newCompType();
-        this.comps.push(newComp);
-        return newComp;
+    AddComponent(t) {
+        this.comps.push(t);
+        return t;
     }
 }
 class WeaponComp {

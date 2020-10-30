@@ -3,17 +3,16 @@ console.log('asd');
 var aTYPE;
 (function (aTYPE) {
     function FixInput(t) {
-        console.log('1');
         let input = t;
         input instanceof Man ?
-            console.log('man', input.dick) :
+            console.log('man', input.mouse) :
             input instanceof Woman ?
-                console.log('woman', input.breast) :
+                console.log('woman', input.eyes) :
                 console.log('unknown');
     }
     class Man {
         constructor() {
-            this.dick = 1;
+            this.mouse = 1;
         }
     }
     class Woman {
