@@ -36,4 +36,4 @@ var AdditionSymbol;
     addListener(...LashiEvent.options);
     addListener(...(new LashiEvent()).SetOption({ name: 'sa', value: () => { } }, { name: 'asdasd', value: () => { } }));
 })(AdditionSymbol || (AdditionSymbol = {}));
-//# sourceMappingURL=配置型Option.js.map
+//# sourceMappingURL=%E9%85%8D%E7%BD%AE%E5%9E%8BOption.js.map

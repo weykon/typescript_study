@@ -24,4 +24,4 @@ var 字典或映射取代if;
     }
     console.log(go('Wake')());
 })(字典或映射取代if || (字典或映射取代if = {}));
-//# sourceMappingURL=字典或映射取代if.js.map
+//# sourceMappingURL=%E5%AD%97%E5%85%B8%E6%88%96%E6%98%A0%E5%B0%84%E5%8F%96%E4%BB%A3if.js.map

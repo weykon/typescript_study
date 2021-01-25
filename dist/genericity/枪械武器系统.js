@@ -60,4 +60,4 @@ let ak = new AK47();
 console.log(ak);
 ak.AddComponent();
 console.log(ak);
-//# sourceMappingURL=枪械武器系统.js.map
+//# sourceMappingURL=%E6%9E%AA%E6%A2%B0%E6%AD%A6%E5%99%A8%E7%B3%BB%E7%BB%9F.js.map

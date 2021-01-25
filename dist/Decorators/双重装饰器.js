@@ -43,4 +43,4 @@ var doubleDecorator;
     console.log(a.classThing);
     a.todo();
 })(doubleDecorator || (doubleDecorator = {}));
-//# sourceMappingURL=双重装饰器.js.map
+//# sourceMappingURL=%E5%8F%8C%E9%87%8D%E8%A3%85%E9%A5%B0%E5%99%A8.js.map

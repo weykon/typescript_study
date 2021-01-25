@@ -42,4 +42,4 @@ var Player批量属性;
     }
     console.log(new Player());
 })(Player批量属性 || (Player批量属性 = {}));
-//# sourceMappingURL=Player批量属性.js.map
+//# sourceMappingURL=Player%E6%89%B9%E9%87%8F%E5%B1%9E%E6%80%A7.js.map

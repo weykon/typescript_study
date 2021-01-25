@@ -21,4 +21,4 @@ var aTYPE;
     let woman = new Woman();
     FixInput(woman);
 })(aTYPE || (aTYPE = {}));
-//# sourceMappingURL=高级类型.js.map
+//# sourceMappingURL=%E9%AB%98%E7%BA%A7%E7%B1%BB%E5%9E%8B.js.map

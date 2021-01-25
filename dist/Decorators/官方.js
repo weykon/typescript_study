@@ -25,4 +25,4 @@ Greeter = __decorate([
 ], Greeter);
 const greeter = new Greeter('world');
 console.log({ greeter }, greeter.hello);
-//# sourceMappingURL=官方.js.map
+//# sourceMappingURL=%E5%AE%98%E6%96%B9.js.map

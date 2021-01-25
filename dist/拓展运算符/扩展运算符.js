@@ -21,4 +21,4 @@ var AdditionSymbol;
     }
     addListener(new LashiEvent, '1', new LashiEvent().options);
 })(AdditionSymbol || (AdditionSymbol = {}));
-//# sourceMappingURL=扩展运算符.js.map
+//# sourceMappingURL=%E6%89%A9%E5%B1%95%E8%BF%90%E7%AE%97%E7%AC%A6.js.map

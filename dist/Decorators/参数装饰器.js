@@ -22,4 +22,4 @@ var ParamDecorators;
     ParamDecorators.a = new Hello();
     ParamDecorators.a.checkType('1', 2);
 })(ParamDecorators || (ParamDecorators = {}));
-//# sourceMappingURL=参数装饰器.js.map
+//# sourceMappingURL=%E5%8F%82%E6%95%B0%E8%A3%85%E9%A5%B0%E5%99%A8.js.map

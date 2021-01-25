@@ -50,4 +50,4 @@ aa.Todo();
 //             throw new Error('Not a valid decorator');
 //     }
 // }
-//# sourceMappingURL=函数始末打印.js.map
+//# sourceMappingURL=%E5%87%BD%E6%95%B0%E5%A7%8B%E6%9C%AB%E6%89%93%E5%8D%B0.js.map

@@ -27,4 +27,4 @@ var oneTaste;
     let bAction = genraicityGetAction(b, b);
     console.log('done');
 })(oneTaste || (oneTaste = {}));
-//# sourceMappingURL=初体验.js.map
+//# sourceMappingURL=%E5%88%9D%E4%BD%93%E9%AA%8C.js.map

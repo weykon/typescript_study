@@ -16,4 +16,4 @@ var GenericityOption;
         }
     }
 })(GenericityOption || (GenericityOption = {}));
-//# sourceMappingURL=泛型化Option.js.map
+//# sourceMappingURL=%E6%B3%9B%E5%9E%8B%E5%8C%96Option.js.map

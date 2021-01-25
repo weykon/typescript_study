@@ -33,4 +33,4 @@ function instAsonClass(t) {
 }
 let instAson = instAsonClass(sonGCtrl);
 console.log(instAson);
-//# sourceMappingURL=对象InputController.js.map
+//# sourceMappingURL=%E5%AF%B9%E8%B1%A1InputController.js.map

@@ -54,4 +54,4 @@ TerrainManager = __decorate([
     ManagerRegister
 ], TerrainManager);
 new Manager();
-//# sourceMappingURL=练习-管理器注册.js.map
+//# sourceMappingURL=%E7%BB%83%E4%B9%A0-%E7%AE%A1%E7%90%86%E5%99%A8%E6%B3%A8%E5%86%8C.js.map

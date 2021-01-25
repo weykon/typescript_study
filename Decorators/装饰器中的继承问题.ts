@@ -1,15 +1,20 @@
 namespace 装饰器中的继承问题 {
   class A {
     a: number = 0;
+
     @dcrat()
-    funcA() {"A"}
+    funcA(self: A) {
+      console.log("A", this);
+    }
   }
 
   class B extends A {
     b: number = 1;
 
     @dcrat()
-    funcB() {"B"}
+    funcB(self: B) {
+      console.log("B", this);
+    }
   }
 
   function dcrat() {
@@ -18,7 +23,24 @@ namespace 装饰器中的继承问题 {
       name: string,
       descriptor: PropertyDescriptor
     ) {
-        
+      console.log("dcrat\n", "\n", target, "\n", name, "\n", descriptor, "\n");
+
+      let ori = descriptor.value;
+
+      descriptor.value = (self: any) => {
+        console.log(target);
+        console.log(self);
+        self.b = 2;
+
+        ori.call(self);
+      };
     };
   }
+
+  const a = new A();
+  const b = new B();
+  a.funcA(a);
+  b.funcB(b);
+
+  //可获取 实例对象了
 }

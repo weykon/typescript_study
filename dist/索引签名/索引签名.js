@@ -12,4 +12,4 @@ var 索引;
     };
     console.log(myArray.dog["name"]); // terry
 })(索引 || (索引 = {}));
-//# sourceMappingURL=索引签名.js.map
+//# sourceMappingURL=%E7%B4%A2%E5%BC%95%E7%AD%BE%E5%90%8D.js.map

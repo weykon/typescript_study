@@ -18,4 +18,4 @@ var Ouerrrrrr;
         funcDecorator //报错。  不成立    
     ], SomeClass.prototype, "todo", null);
 })(Ouerrrrrr || (Ouerrrrrr = {}));
-//# sourceMappingURL=不带括号参数试试函数装饰器.js.map
+//# sourceMappingURL=%E4%B8%8D%E5%B8%A6%E6%8B%AC%E5%8F%B7%E5%8F%82%E6%95%B0%E8%AF%95%E8%AF%95%E5%87%BD%E6%95%B0%E8%A3%85%E9%A5%B0%E5%99%A8.js.map

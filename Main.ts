@@ -38,7 +38,6 @@ function mainCase3() {
     console.log('程序开始')
     let a = new Greeter('Kong')
     console.log('log~~~~: ',)
-    a.greet('Weykon')
 
     type Keys = 'age=1' | 12;
     type Flags = { [K in Keys]: boolean }
