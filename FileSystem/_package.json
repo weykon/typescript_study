@@ -1,0 +1,6 @@
+
+{
+    "script":{
+        "start": "tsnode ./FileSystem/main.ts"
+    }
+}
