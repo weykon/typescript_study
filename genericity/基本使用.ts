@@ -14,7 +14,7 @@ namespace 基本使用 {
   }
   swipe<Cat<number>, Dog<number>>([cat, dog]);
 
-  //  泛型推断 infer
+  //  泛型推断 infer   来判断返回值类型;
   type Foo<T> = T extends {t: infer Test} ? Test :string 
 
 }
