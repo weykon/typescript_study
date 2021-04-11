@@ -14,7 +14,9 @@ namespace 索引 {
 
     let myArray: AnimalArray = {
         dog:
-            { type: "animal", name: "terry" }
+            { type: "animal", name: "terry" },
+        ["1"]: new Dog(),
+        [2]: new Dog(),
     }
 
     console.log(myArray.dog["name"]); // terry
