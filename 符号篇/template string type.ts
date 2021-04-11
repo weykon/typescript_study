@@ -18,4 +18,11 @@ namespace templateStringType {
     function test<T extends t6>(params: T) {
 
     }
+
+    test("hellø wørld");
+
+    type replace<S, A extends string, B extends string> =
+        string extends S ? "" : (S extends `${infer L}${A}${infer R}` ? `${L}${B}${ReplaceAll<R, A, B>}` : S)
+
+    type t5 = replace<'', 'o', 'ø'>
 }
