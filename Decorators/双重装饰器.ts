@@ -20,6 +20,7 @@ namespace doubleDecorator {
             }
         }
     }
+
     function decoratorB() {
         return function (tagetProp: any, funcName: string, descriptor: PropertyDescriptor) {
             let ori = descriptor.value
