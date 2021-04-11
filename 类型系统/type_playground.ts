@@ -22,8 +22,8 @@ namespace type_playground {
 
 
     type InferSomething2<T> = T extends { a: infer A, b: number } ? A : any;
-    type inffered1 = InferSomething2<{a: "hello" , b: 1}>
+    type inffered1 = InferSomething2<{ a: "hello", b: 1 }>
 
 
-    type KeyType <T > = T extends Array< infer P> ? T[P] : any
+    type KeyType<T> = T extends Array<infer P> ? P : any
 }
