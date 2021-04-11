@@ -63,4 +63,6 @@ module 条件类型 {
 
     type Param = ParamType<Func>
     type AA = ParamType<string>
+
+    type arrayEleType = Flatten_<Array<string>>
 }

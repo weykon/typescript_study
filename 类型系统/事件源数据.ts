@@ -6,4 +6,13 @@ module 事件源数据 {
             : void;
     }
 
+    type MyMoneyChange = PropEventSource<{ 支出项目: any }>
+
+    function go() {
+
+        let moneyChange: MyMoneyChange = {
+            on<支出项目>
+        }
+    }
+
 }
