@@ -6,7 +6,7 @@ module 事件源数据 {
             : void;
     }
 
-    type MyMoneyChange = PropEventSource<{ 支出项目: any, 收入: any }>
+    type MyMoneyChange = PropEventSource<{ 支出项目: string, 收入: any }>
 
     function go() {
 
