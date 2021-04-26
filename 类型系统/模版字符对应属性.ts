@@ -8,4 +8,4 @@ module 模版字符对应属性 {
     type Prop = `${Way}-${Value}`
 
     const a = {}
-
+}

@@ -18,7 +18,7 @@ namespace oneTaste {
 
     function genraicityGetAction<T extends mRole, inputT>(_type: T, nOrS: inputT) {
         console.log(nOrS);
-        // return _type.Action
+        return _type.Action
     }
 
     let a = new mHuman()
