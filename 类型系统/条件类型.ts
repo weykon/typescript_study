@@ -34,9 +34,6 @@ module 条件类型 {
     interface Email {
         message: string;
     }
-    interface Dog {
-        bark(): void
-    }
 
     type EmailMessageContents = MessageOf<Email>
 
@@ -64,5 +61,24 @@ module 条件类型 {
     type Param = ParamType<Func>
     type AA = ParamType<string>
 
-    type arrayEleType = Flatten_<Array<string>>
+    type arrayEleType = Flatten_<Array<string>>;
+
+
+    // 继承方面
+    interface Animal {
+        live(): void;
+    }
+    interface Dog extends Animal {
+        woof(): void;
+    }
+
+    type isDog<T> = T extends Dog ? Dog : false;
+
+    interface similarDog extends Dog {
+    }
+
+    type unknownType = isDog<similarDog>
+
+
+
 }
