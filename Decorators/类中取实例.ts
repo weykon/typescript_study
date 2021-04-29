@@ -3,7 +3,7 @@ namespace 类中取实例 {
 
   @dcrat(data)
   class A {
-    constructor() {}
+    constructor() { }
     a = 1;
   }
 
@@ -12,8 +12,11 @@ namespace 类中取实例 {
     b = 2;
   }
 
-  function classDcrat<T extends { new (...args: any[]): {} }>(ctor: T) {
-    return class extends ctor {};
+  @classDcrat
+  class C { }
+
+  function classDcrat<T extends { new(...args: any[]): {} }>(ctor: T) {
+    return class extends ctor { };
   }
 
   function dcrat(data: any) {

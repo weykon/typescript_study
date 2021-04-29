@@ -4,6 +4,7 @@ abstract class CodeThing {
 }
 
 function ManagerRegister(target: any) {
+    console.log(target.prototype.constructor)
     Manager.CtorList.push(target.prototype.constructor)
 }
 

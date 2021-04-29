@@ -4,9 +4,6 @@ namespace templateStringType {
 
     type Greeting = `hello ${World}`;
 
-
-
-
     // replace all
     type ReplaceAll<S, A extends string, B extends string> =
         string extends S ? '' :
