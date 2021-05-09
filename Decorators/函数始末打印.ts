@@ -2,13 +2,12 @@ export namespace 函数打印 {
 
     function FuncLog(targetPropertype: Object, propName: string, descriptor: PropertyDescriptor) {
         let ori = descriptor.value
-        descriptor.value = function () {
-            console.log(`@ Start--------> ...${propName} -function`);
-            let t0 = new Date().getTime()
-            console.log(targetPropertype)
-            ori.call(this)
-            let t1 = new Date().getTime()
-            console.log(`@ End--------> ... ${propName} -function\n ${(t1 - t0) / 1000}s`);
+        descriptor.value = function (...args: any[]) {
+            console.log(`@Start--------> ...\n${propName} -function`);
+            const t0 = new Date().getTime()
+            ori.call(this, ...args)
+            const t1 = new Date().getTime()
+            console.log(`@End--------> ...\n${propName} -function\n ${(t1 - t0) / 1000}s`);
         }
     }
 
