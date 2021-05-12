@@ -23,5 +23,5 @@ namespace 将对象转化为数组 {
         length: 3
     }
 
-    Array.from(Obj1)
+    console.log(Array.from(Obj1))
 }
