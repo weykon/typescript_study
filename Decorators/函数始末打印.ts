@@ -1,9 +1,9 @@
 export namespace 函数打印 {
 
-    function FuncLog(targetPropertype: Object, propName: string, descriptor: PropertyDescriptor) {
+    function FuncLog(targetPropertype: any, propName: string, descriptor: PropertyDescriptor) {
         let ori = descriptor.value
         descriptor.value = function (...args: any[]) {
-            console.log(`%cStart--- \n@${propName} `, "background:green");
+            console.log(`%cStart--- \n@${propName}: ${[...arguments]} `, "background:green");
             const t0 = new Date().getTime()
             ori.call(this, ...args)
             const t1 = new Date().getTime()
@@ -16,16 +16,16 @@ export namespace 函数打印 {
             this.index = index
         }
         @FuncLog
-        public Todo() {
-            console.log('index', this.index);
+        public Todo(num: number) {
+            console.log('index', this.index, num);
         }
     }
 
     let aa = new SomeClass(4)
     let bb = new SomeClass(7)
 
-    aa.Todo()
-    bb.Todo()
+    aa.Todo(1)
+    bb.Todo(2)
     // // 装饰器工厂，根据传入的参数调用相应的装饰器
     // function log(...args: any[]) {
     //     switch (args.length) {
