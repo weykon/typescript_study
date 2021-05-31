@@ -1,6 +1,7 @@
-
-window.myWindowVar
-const _dtsMyGlobal: dtsMyGlobal = {
-    prop: {}
+export function gogogo() {
+    window.myWindowVar
+    const _dtsMyGlobal: dtsMyGlobal = {
+        prop: {}
+    }
+    myGlobalVar = 2;
 }
-myGlobalVar = 2;

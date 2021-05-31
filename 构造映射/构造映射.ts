@@ -5,7 +5,10 @@ export namespace 构造映射 {
     @ctorDcrat
     class A { constructor() { console.log("A") } }
     @ctorDcrat
-    class B { constructor() { console.log("B") } }
+    class B {
+            constructor() { console.log("B") }
+            b(){}
+    }
 
     function ctorDcrat<T extends { new(...args: any[]): {} }>(target: T) {
         console.log(target.prototype.constructor.name)
