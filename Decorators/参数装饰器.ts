@@ -22,7 +22,6 @@ namespace ParamDecorators {
 
     class Target {
 
-        @paramDecrat
         public fix: boolean = true;
 
         public checkType<T>(@paramDecrat a: string, @paramDecrat t: T) {
