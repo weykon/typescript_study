@@ -18,5 +18,6 @@ namespace 新枪械 {
         name!: string
     }
     
+    
 }
 

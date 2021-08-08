@@ -2,12 +2,13 @@ export namespace 函数打印 {
 
     function FuncLog(targetPropertype: any, propName: string, descriptor: PropertyDescriptor) {
         let ori = descriptor.value
-        descriptor.value = function (...args: any[]) {
+        descriptor.value = async function (...args: any[]) {
             console.log(`%cStart--- \n@${propName}: ${[...arguments]} `, "background:green");
             const t0 = new Date().getTime()
-            ori.call(this, ...args)
+            const res = await ori.apply(this, ...args)
             const t1 = new Date().getTime()
             console.log(`%cEnd--- \n@${propName} \n ${(t1 - t0) / 1000}s`, "background:red");
+            return res
         }
     }
 
