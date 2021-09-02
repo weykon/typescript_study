@@ -5,11 +5,12 @@ export namespace 函数打印 {
         descriptor.value = async function (...args: any[]) {
             console.log(`%cStart--- \n@${propName}: ${[...arguments]} `, "background:green");
             const t0 = new Date().getTime()
-            const res = await ori.apply(this, ...args)
+            const res = await ori.call(this, ...args)
             const t1 = new Date().getTime()
             console.log(`%cEnd--- \n@${propName} \n ${(t1 - t0) / 1000}s`, "background:red");
             return res
         }
+        return descriptor
     }
 
     class SomeClass {
