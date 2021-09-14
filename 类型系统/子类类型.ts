@@ -10,4 +10,5 @@ namespace 子类类型 {
     class Other { }
 
     type mSon = SonType<Father>
+    type isSon = SonType<Son>
 }

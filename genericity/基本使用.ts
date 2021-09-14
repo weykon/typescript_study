@@ -15,6 +15,16 @@ namespace 基本使用 {
   swipe<Cat<number>, Dog<number>>([cat, dog]);
 
   //  泛型推断 infer   来判断返回值类型;   表示在 extends 条件语句中待推断的类型变量。
-  type Foo<T> = T extends {t: infer Test} ? Test :string 
+  type Foo<T> = T extends { t: infer Test } ? Test : string
+
+  type Bar<T> = T extends infer R ? R : string
+
+  const bar: Bar<number> = 1
+
+  type diffReturn<T> = T extends number ? number : string
+
+  function diffReturn<T extends number | string>(params: T): diffReturn<T> {
+    throw "unimplemented";
+  }
 
 }

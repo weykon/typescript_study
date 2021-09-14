@@ -79,6 +79,10 @@ module 条件类型 {
 
     type unknownType = isDog<similarDog>
 
+    type Engine<T> = T extends { engine: unknown } ? T['engine'] : never
 
-
+    type Car = {
+        engine: "Diesel"
+    }
+    type CarEngine = Engine<Car>
 }
