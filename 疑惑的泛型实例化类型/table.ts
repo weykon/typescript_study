@@ -18,3 +18,13 @@ function A(name: string) {
 }
 //@ts-ignore
 let b = myNew(A, '1')
+
+
+type TypeContainer = abc | xyz;
+class abc extends Foo<abc>{ abc!: number }
+class xyz { xyz!: number }
+function create<T extends TypeContainer>(t: { new(): Foo<T> }) {
+    return new t();
+}
+
+create(abc)

@@ -52,7 +52,9 @@ namespace AdditionSymbol {
     addListener<Event<LashiEvent>>(...(new LashiEvent()).SetOption(
         { name: 'sa', value: () => { } },
         { name: 'asdasd', value: () => { } }
-    ))
+    ));
+
+    
 }
 
 

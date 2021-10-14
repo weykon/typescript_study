@@ -71,5 +71,42 @@ namespace Extract实用 {
     const ak: Weapon = { name: 'ak47', zoom: '4x' }
     const a = isWeaponEquipZoom({ name: 'm4' })
     const b = isWeaponEquipZoom(ak)
-    console.log('1', a, b)
+    console.log('1', a, b);
+
+
+    // Event param Option 
+    type EventName =
+        | { name: 'goHome', by: "car", todo: (peopleNum: number) => void }
+        | { name: 'goTrip', by: "plane", todo: (planeName: string) => void }
+
+    function eventFire<T extends EventName['name']>(name: T, option: Extract<EventName, { name: T }>['by']) { }
+
+    eventFire('goHome', 'car');
+    eventFire('goTrip', "plane");
+
+    function eventOn<T extends EventName["name"]>(name: T, todo: Extract<EventName, { name: T }>['todo']) { }
+
+    eventOn('goHome', (peopleNum: number) => { })
+    eventOn('goTrip', (name: string) => { });
+
+
+    // 开始
+    class Holder<T> {
+        listen!: (val: T) => void;
+    }
+    const hs = new Holder<string>();
+    const hn = new Holder<number>();
+
+    type HoldersObject = { [n: string]: Holder<any> };
+
+    function combineHolders<T extends HoldersObject>(h: T): Holder<{ [HolderName in keyof T]: T[HolderName] extends Holder<infer P> ? P : any }> {
+        return undefined as any;
+    }
+
+    const comb_1 = combineHolders({
+        hs,
+        hn,
+    });
+
+    comb_1.listen({ hs: "", hn: 0 });
 }

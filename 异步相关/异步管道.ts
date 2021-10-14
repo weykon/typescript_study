@@ -1,4 +1,4 @@
-export namespace 异步管道 {
+export namespace 异步管道_promise队列 {
 
     let curPromise = Promise.resolve();
 
@@ -16,4 +16,15 @@ export namespace 异步管道 {
     })
 
     curPromise.then(() => { console.log('done') })
+
+    export function promiseQue<T>(queArr: (() => Promise<T>)[]) {
+        let curP = Promise.resolve();
+        queArr.forEach(async (e) => {
+            curP = curP.then(async () => {
+                await e();
+            })
+        });
+
+        return curP.then(()=>{})
+    }
 }

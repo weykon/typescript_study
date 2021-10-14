@@ -11,7 +11,6 @@ namespace WeaponSystem {
 
     }
 
-
     abstract class WeaponComp<T>{
         comp_name!: string
         type!: T
