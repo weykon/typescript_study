@@ -23,4 +23,6 @@ namespace InferInfer {
         top: { id: 1 },
         rest: null,
     }
+
 }
+

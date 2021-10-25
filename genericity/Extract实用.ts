@@ -91,22 +91,30 @@ namespace Extract实用 {
 
 
     // 开始
-    class Holder<T> {
-        listen!: (val: T) => void;
+    {
+        class Holder<T> {
+            listen!: (val: T) => void;
+        }
+        const hs = new Holder<string>();
+        const hn = new Holder<number>();
+
+        type HoldersObject = { [n: string]: Holder<any> };
+
+        function combineHolders<T extends HoldersObject>(h: T)
+            : Holder<{
+                [HolderName in keyof T]: T[HolderName] extends Holder<infer P>
+                ? P : any }
+            > {
+            return undefined as any;
+        }
+
+        const comb_1 = combineHolders({
+            hs,
+            hn,
+        });
+
+        comb_1.listen({ hs: "", hn: 0 });
     }
-    const hs = new Holder<string>();
-    const hn = new Holder<number>();
 
-    type HoldersObject = { [n: string]: Holder<any> };
 
-    function combineHolders<T extends HoldersObject>(h: T): Holder<{ [HolderName in keyof T]: T[HolderName] extends Holder<infer P> ? P : any }> {
-        return undefined as any;
-    }
-
-    const comb_1 = combineHolders({
-        hs,
-        hn,
-    });
-
-    comb_1.listen({ hs: "", hn: 0 });
 }

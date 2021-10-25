@@ -22,7 +22,7 @@ namespace 类中取实例 {
   function dcrat(data: any) {
     return function (target: any) {
       console.log(1, target);
-      console.log(2, target.prototype);
+      console.log(2,  target.prototype);
     };
   }
 

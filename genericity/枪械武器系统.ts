@@ -14,6 +14,9 @@ namespace WeaponSystem {
     abstract class WeaponComp<T>{
         comp_name!: string
         type!: T
+        remove(...params: any) {
+
+        }
     }
 
     abstract class SightOption<T> extends WeaponComp<T>{
@@ -41,5 +44,12 @@ namespace WeaponSystem {
     const ak47 = new AK47()
     const fourzoomcomp = ak47.AddComponent(new FourZoom<AK47>());
 
+    const removeComp = <T extends Weapon<T>, C extends WeaponComp<T>>(weaponT: T, comp: C) => {
+        return comp.remove();
+    }
 
+    // 移除组件
+    removeComp(ak47, fourzoomcomp);
+
+    
 }
