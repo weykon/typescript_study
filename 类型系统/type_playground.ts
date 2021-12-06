@@ -27,4 +27,11 @@ namespace type_playground {
 
     type KeyType<T> = T extends Array<infer P> ? P : any;
 
+    const c: KeyType<Array<number>> = 1
+
+    const d = new Array<number>()
+
+    function selectInferType<T>(t: T extends Array<infer R> ? R : never) { }
+
+    selectInferType<Array<number>>(1)
 }

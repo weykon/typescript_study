@@ -4,10 +4,6 @@ export namespace Game {
 
     }
 
-
-
-
-
     type UpdateUI_HP = {
         eventName: "update_ui_hp"
         todo: (updateElementArr: any[]) => any

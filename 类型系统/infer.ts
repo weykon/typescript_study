@@ -24,5 +24,22 @@ namespace InferInfer {
         rest: null,
     }
 
+    // 泛中泛的标识？ 
+    class TypeContanier<T>{
+
+    }
+
+    class HighContanier<T>{
+        constructor() {
+            return 1
+        }
+    }
+
+    function toTypeOutLowestType<T>(t: T extends HighContanier<infer R> ? R : never) {
+
+    }
+
+    const a = new HighContanier<number>()
+    toTypeOutLowestType<HighContanier<number>>(1)
 }
 

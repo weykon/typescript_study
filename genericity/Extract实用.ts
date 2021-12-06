@@ -48,7 +48,6 @@ namespace Extract实用 {
     // const n: number = send("2", "2");
     // const n1: string = send("2", "2");
 
-
     type InputParam =
         | { name: string }
         | { todo: () => {} }
@@ -113,7 +112,7 @@ namespace Extract实用 {
             hn,
         });
 
-        comb_1.listen({ hs: "", hn: 0 });
+        // comb_1.listen({ hs: "", hn: 0 });
     }
 
 
