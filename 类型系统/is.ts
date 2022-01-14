@@ -20,4 +20,13 @@ export namespace keyWordIs {
 
     confirmOutputIsFish(fish)
 
+    // asserts 
+    function test(t: any): asserts t is number {
+        if (!t || typeof t !== 'number') {
+            throw new Error()
+        }
+    }
+
+    test("1")
+
 }
