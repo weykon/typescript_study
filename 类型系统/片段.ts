@@ -38,7 +38,7 @@ module 片段 {
             return assumn
         }
     }
-
+    
 
     type a = number
     type b = string
