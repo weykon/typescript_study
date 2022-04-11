@@ -4,14 +4,13 @@ module 交集 {
     type Name = { name: string }
     type Point = { point: { x: number, y: number } }
     type NamePoint = Name & Point;
-
+    const namePoint:NamePoint = {
+        name:'',point:{x:1,y:2}
+    }
 
     type MyBoolean = true | false;
 
     type Result = MyBoolean & NamePoint // 相交的部分
-
-
-
 
     // 解释
 
