@@ -12,7 +12,7 @@ namespace GetPost {
     }
     const Get = mappingDecorator('GET');
     const Post = mappingDecorator('POST');
-    
+
     const isConstructor = (item: any) => item.constructor === Boolean
     const isFunction = (item: unknown) => typeof item === 'function'
     function mapRoute(instance: Object) {
@@ -33,4 +33,19 @@ namespace GetPost {
             }
         })
     };
+
+    @Controller('/test')
+    class SomeClass {
+        @Get('/a')
+        someGetMethod() {
+            return 'hello world';
+        }
+
+        @Post('/b')
+        somePostMethod() { }
+    }
+
+    Reflect.getMetadata(PATH_METADATA, SomeClass); // '/test'
+
+    console.log(mapRoute(new SomeClass()))
 }
