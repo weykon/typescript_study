@@ -112,7 +112,7 @@ namespace Extract实用 {
             hn,
         });
 
-        // comb_1.listen({ hs: "", hn: 0 });
+        comb_1.listen({ hs: "", hn: 0 });
     }
 
 
