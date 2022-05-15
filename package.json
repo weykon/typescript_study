@@ -1,5 +1,8 @@
 {
-    "scripts":{
+    "scripts": {
         "start": "ts-node ./FileSystem/main.ts"
+    },
+    "dependencies": {
+        "reflect-metadata": "^0.1.13"
     }
 }
