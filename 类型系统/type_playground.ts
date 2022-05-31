@@ -34,4 +34,12 @@ namespace type_playground {
     function selectInferType<T>(t: T extends Array<infer R> ? R : never) { }
 
     selectInferType<Array<number>>(1)
+
+    type ReturnFunctionReturnType<T> = T extends () => (infer R) ? R : never
+
+    type AA = () => () => number
+
+    type What_a_FuntionBack = ReturnFunctionReturnType<AA>
+
+    
 }

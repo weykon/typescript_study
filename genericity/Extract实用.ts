@@ -115,5 +115,12 @@ namespace Extract实用 {
         comb_1.listen({ hs: "", hn: 0 });
     }
 
-
+    type ModeType = 'edit' | 'other'
+    type Mode<T> = EditMode<T> | Other<T>
+    type EditMode<T> = { type: 'edit', modes: { normal: T extends { normal: infer R } ? R : never, edit: T extends { edit: infer U } ? U : never } }
+    type Other<K> = { type: 'other', modes: { other: K } }
+    type GoMode = <Type extends ModeType,MODE extends Mode<MODE>>(type: Type, modes: Extract<MODE,{type: Type}>['modes']  )=>{}
+    const goMode : GoMode= <Type extends ModeType,MODE extends Mode<MODE>>(type: Type ,modes: Extract<MODE,{type: Type}>['modes'])=>{
+        return {}
+    }
 }
