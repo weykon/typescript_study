@@ -27,3 +27,6 @@ export namespace Covariance_Inverter_from_rust {
     }
     capture(new Cage<Dog>())  // 是这样使用
 }
+
+// 协变： 允许子类型转换为父类型
+// 逆变： 允许父类型转换为子类型
