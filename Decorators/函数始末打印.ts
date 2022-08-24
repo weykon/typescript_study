@@ -29,6 +29,8 @@ export namespace 函数打印 {
 
     aa.Todo(1)
     bb.Todo(2)
+    bb.Todo(3)
+    bb.Todo(4)
     // // 装饰器工厂，根据传入的参数调用相应的装饰器
     // function log(...args: any[]) {
     //     switch (args.length) {
