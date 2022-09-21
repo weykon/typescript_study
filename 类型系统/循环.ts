@@ -12,7 +12,7 @@ export namespace 循环 {
     type Example1<T> = T extends number ? T : never;
     type Result1 = Example1<"1" | "2" | 3 | 4>
 
-    // 映射 (固定写法)
+    // 映射
     type Example2<T extends string | number | symbol> = {
         [K in T]: K
     }
@@ -29,5 +29,19 @@ export namespace 循环 {
     type Tuple = [string, number];
     type TupleToUnion = ElementOf<Tuple>; // type TupleToUnion = string | number
 
+    // 
+    type KeysAndValues<Something> = {
+        [k in keyof Something]: {
+            key: k,
+            value: Something[k]
+        }
+    }[keyof Something]
+    type something = {
+        a: number,
+        b: string,
+        c: "literal"
+    }
+    type Re = KeysAndValues<something>
 
+    type ToUnionOfArray<T> = T extends infer I ? I[] : never;
 }
