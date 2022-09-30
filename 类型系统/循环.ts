@@ -44,4 +44,34 @@ export namespace 循环 {
     type Re = KeysAndValues<something>
 
     type ToUnionOfArray<T> = T extends infer I ? I[] : never;
+
+    // 模式匹配理解 
+    'abc'.replace(/a(b)c/, '$1,$1,$1');    // => 'b,b,b'
+
+    // 去掉最后一个元素 pop
+    type Pop<T extends unknown[]> = T extends [...infer Rest, infer R] ?
+        [...Rest] : never;
+
+    // shift
+    type Shift<T extends unknown[]> = T extends [infer R, ...infer Rest] ?
+        [...Rest] : never;
+
+    // trim 
+    type TrimLeft<Str extends string> = Str extends `${' ' | '\t' | '\n'}${infer Rest}` ?
+        TrimLeft<Rest> : Str;
+
+    // 类型添加、High Kinded Type HTK
+    type GenericFunction = (...x: never[]) => unknown;
+    abstract class HKT {
+        readonly _1?: unknown;
+        new!: GenericFunction
+    }
+    type Apply<F extends HKT, _1> = ReturnType<
+        (F & {
+            readonly _1: _1;
+        })["new"]
+    >;
+    type MapTuple<X extends readonly unknown[], F extends HKT> = {
+        [K in keyof X]: Apply<F, X[K]>;
+    };
 }

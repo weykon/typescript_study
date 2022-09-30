@@ -41,5 +41,17 @@ namespace type_playground {
 
     type What_a_FuntionBack = ReturnFunctionReturnType<AA>
 
-    
+
+    type Custom = { abc: string }
+    let abc: { [k in keyof Partial<Custom>]: Custom[k] } = { abc: 'abc' }
+    let cba: Partial<Custom> = { abc: 'abc' }
+    type ABC = typeof abc
+    type CBA = typeof cba
+    type Eq0 = ABC extends CBA ? true : false
+    type Eq1 = CBA extends ABC ? true : false
+    const boolean0: Eq1 = true   // ok
+    const boolean1: Eq1 = false   // err
+
+    // how to check the Partial type and print out 
+    type HowTheType = Partial<Custom>
 }
