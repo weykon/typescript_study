@@ -16,18 +16,16 @@ export namespace 中断异步 {
 
         console.log('I never reach HERE !')
 
-
     }
 
 
     async function warpMaybeInterruptPromiseFn(beInterruptFn: () => Promise<boolean>, income_promise: () => Promise<unknown>) {
 
-
-        return Promise.race([b, income_promise])
+        // return Promise.race([b, income_promise])
     }
 
 
-    let_see_promise_race();
+    // let_see_promise_race();
 
     const ctrller = new AbortController();
 
@@ -35,9 +33,15 @@ export namespace 中断异步 {
         ctrller.signal.addEventListener("abort", () => {
             reject();
         });
+        setTimeout(() => {
+            console.log('work done!');
+            resolve(1)
+        }, 5000);
     });
 
     ctrller.abort();
+
+    task.then((suc) => { console.log('suc', suc) })
 
     function i_will_click_and_interrupt_that() {
         console.log('I do the worst');
