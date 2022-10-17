@@ -4,7 +4,14 @@
     },
     "dependencies": {
         "@types/reflect-metadata": "^0.1.0",
+        "fp-ts": "^2.12.3",
         "reflect-metadata": "^0.1.13"
     },
-    "author": {"name": "weykon","email": "635883092@.qqcom"}
+    "author": {
+        "name": "weykon",
+        "email": "635883092@.qqcom"
+    },
+    "devDependencies": {
+        "@types/node": "^18.11.0"
+    }
 }

@@ -74,4 +74,14 @@ export namespace 循环 {
     type MapTuple<X extends readonly unknown[], F extends HKT> = {
         [K in keyof X]: Apply<F, X[K]>;
     };
+
+    // 声明一个接口然后保持一个只读属性，然后Type出这个属性的类型。
+
+    interface Container {
+        readonly x?: unknown;
+        readonly y: this["x"]
+    }
+
+    type Y = (Container & { readonly x: number })["y"]
+
 }
