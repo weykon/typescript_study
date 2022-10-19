@@ -1,7 +1,5 @@
 // 对于fp-ts ， 还有另一个做法， 
 
-import { type } from "os"
-
 interface MyInterface {
     readonly x?: unknown
     readonly y: this["x"]
@@ -129,7 +127,7 @@ type DrinkLatte = DrinkIt<Latte, {
 }>
 
 type AddProp<T extends string, U> = T extends `${Size}` ? U & { [k in Size]: number } : never
-type ACup = {water: true}
+type ACup = { water: true }
 type newCup = AddProp<'big', ACup>
 // if add literal
 // I think this method is not eazy to use string literal
@@ -139,3 +137,12 @@ type newCup = AddProp<'big', ACup>
 
 
 // 我认为最主要还是记住这个是桥梁，是通过未知泛型的桥梁
+
+// 需要 调用方 和 被调用方 都适配了需要的code
+
+// --------------------------------
+// mock 一个需要未知泛型的内容
+
+
+
+// --------------------------------
