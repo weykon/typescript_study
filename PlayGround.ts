@@ -29,7 +29,7 @@ export namespace Decorators {
             console.log('little_decorator : end', _target, _propertyKey)
         }
     }
-    
+
 
     function todoSomething() {
         console.log('todoSomething')
@@ -144,4 +144,12 @@ export namespace mSymbol {
 
         }
     }
-}   
+
+
+    const build = Symbol("build")
+
+    type Builder = {
+        [K: string]: Builder
+        [build]: () => string
+    }
+}  
