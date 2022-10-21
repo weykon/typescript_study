@@ -152,4 +152,18 @@ export namespace mSymbol {
         [K: string]: Builder
         [build]: () => string
     }
+
+    type AA = { BB: Boolean | Undefined }
+    interface Undefined {
+        valueOf: undefined
+    }
+
+    type CheckAABB<T> = T extends { BB: infer R } ?
+        R extends undefined ? 'Value undefined' : R
+        : 'BB unassigned'
+
+    const aa = {  }
+    // const aa = {BB:undefined}
+    // const aa = {BB:false}
+    type Result = CheckAABB<typeof aa>
 }  
