@@ -107,24 +107,26 @@ const spawnMyExpresso: GetAnExpressoFn = () => {
 }
 // 然后可以从行为类型层面不断定义，类似配置运作的系统？
 
-
-// So, let me extend this
-interface Latte extends ForCoffeeHKT {
-    type: this['_type'] & {
-        cup: Size,
-        wakeup_score: number;
-        drink: () => false
+namespace Latte {
+    // So, let me extend this
+    interface Latte extends ForCoffeeHKT {
+        type: this['_type'] & {
+            cup: Size,
+            wakeup_score: number;
+            drink: () => false
+        }
     }
+    type Size = 'big' | 'small' | 'medium';
+
+    // new motive
+    type DrinkIt<T extends ForCoffeeHKT, U> =
+        T extends { type: unknown } ? (T & { _type: U })['type'] : never
+
+    type DrinkLatte = DrinkIt<Latte, {
+        drink: () => false
+    }>
 }
-type Size = 'big' | 'small' | 'medium';
 
-// new motive
-type DrinkIt<T extends ForCoffeeHKT, U> =
-    T extends { type: unknown } ? (T & { _type: U })['type'] : never
-
-type DrinkLatte = DrinkIt<Latte, {
-    drink: () => false
-}>
 
 type AddProp<T extends string, U> = T extends `${Size}` ? U & { [k in Size]: number } : never
 type ACup = { water: true }
