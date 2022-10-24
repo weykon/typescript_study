@@ -27,4 +27,4 @@ function create<T extends TypeContainer>(t: { new(): Foo<T> }) {
     return new t();
 }
 
-create(abc)
+console.log(create(abc))
