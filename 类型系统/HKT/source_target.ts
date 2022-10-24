@@ -67,3 +67,75 @@ interface DT extends DefinedType2<'Object'> {
     [target]: Binder<Source<this>, this['binder_type']>
 }
 type DT_Object = Target<DT, { abc: 'abc' }>
+// Example 2: Done!
+
+
+// Example 3: 
+// Phone as Device to export some interface.
+type Phone = { name: string, version: string, brand: string }
+type Respberry = { name: 'respberry', version: string }
+type STM = { name: 'stm', version: string }
+type Device = Phone | Respberry | STM
+interface DeviceCall {
+    from: Device
+    to: Device
+}
+interface PhoneCallDeviceToOpenDoor<TargetDevice extends Device> extends HKT<DeviceCall> {
+    from: Phone,
+    to: TargetDevice
+    [target]: (to: Source<this>['to']) => void
+}
+const respberry: Respberry = {
+    name: "respberry",
+    version: ""
+}
+const iphone: Phone = {
+    name: "",
+    version: "",
+    brand: ""
+}
+const toRespberry: Target<PhoneCallDeviceToOpenDoor<Respberry>, {
+    from: Phone, to: Respberry
+}> = (to: Respberry) => { }
+// Example 3: Done!
+
+
+// Example 4: 
+// Genernal Type as parameters
+type ATYpe<CarryT> = CarryT extends string ? never : CarryT
+interface WhateverTypeAndBeOneThing extends HKT<unknown> {
+    [target]: ATYpe<Source<this>>
+}
+type OutputToDo = Target<WhateverTypeAndBeOneThing, 's'>
+// this time is important getting the concept of Input/Source to Carry the target
+// and change something
+// fantastic!
+// Example 4: Done!
+
+// Example 5: 
+type CarDoor = { open: () => Promise<'ok'>, close: () => Promise<'done'> }
+type Weykon = { slogan: 'I am cool!', name: 'weykon' };
+type PersonMustHaveSlogan = { slogan: string }
+type Open<Who extends PersonMustHaveSlogan, What, Then> = (slogan: Who['slogan'], what: What) => Then
+// type CarDoorWithPerson<T>
+interface CarDoorWithPersonWhatWillHappen extends HKT<PersonMustHaveSlogan> {
+    [target]: Open<Source<this>, CarDoor, ReturnType<CarDoor['open']>>
+};
+type So_WhenWeykonOpenTheDoor = Target<CarDoorWithPersonWhatWillHappen, Weykon>
+type Param = Parameters<So_WhenWeykonOpenTheDoor>
+const system_run_command: So_WhenWeykonOpenTheDoor = () => Promise.resolve('ok')
+type WithRequiredParamFunction =
+    AFunction<Param, ReturnType<Target<CarDoorWithPersonWhatWillHappen, Weykon>>>;
+const run_required_parameters: WithRequiredParamFunction = () => Promise.resolve('ok'); // Why here is not required
+
+// addition
+// manual compose function
+type AFunction<P extends Array<any>, R> = (...args: P) => R
+// not warning, need to use object carry parameters
+type ObjectParam<T> = T extends [...infer R] ? [R[0], R[1]] : never;
+type TransfromObject = { slogan :  ObjectParam<Param>[0] , name: ObjectParam<Param>[1] }
+// Example 5: Done!
+
+
+// Example 6:
+
