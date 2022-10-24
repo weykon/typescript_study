@@ -133,9 +133,39 @@ const run_required_parameters: WithRequiredParamFunction = () => Promise.resolve
 type AFunction<P extends Array<any>, R> = (...args: P) => R
 // not warning, need to use object carry parameters
 type ObjectParam<T> = T extends [...infer R] ? [R[0], R[1]] : never;
-type TransfromObject = { slogan :  ObjectParam<Param>[0] , name: ObjectParam<Param>[1] }
+type TransfromObject = { slogan: ObjectParam<Param>[0], name: ObjectParam<Param>[1] }
 // Example 5: Done!
 
 
 // Example 6:
+type $<T extends HKT<any, any>, S extends Source<T>> =
+    (T & { [source]: S })[typeof target];
+interface UseTheNewSymbol extends HKT<unknown> {
+    [target]: Source<this>
+}
+type Using = $<UseTheNewSymbol, {}>
+interface PackThisBridge<T, K> extends HKT<K> {
+    [target]: Source<this>
+}
 
+interface CarryGeneric extends HKT<unknown> {
+    [target]: Source<this>
+}
+type AGeneric<T> = T  // here will be change for how to carry generic
+type TTT<T> = $<CarryGeneric, AGeneric<T>>
+// so I finished the lower level of generic, as a parameter
+// Example 6: Done!
+
+// Example 7: 
+// let me rename all types above example to make easy understand
+type HowToDealTypeVariable<Var> = Var
+interface CatchType extends HKT<unknown> {
+    [target]: Source<this>
+}
+type WhateverIWantToDo<Var> = $<CatchType, HowToDealTypeVariable<Var>>
+type NowIKnowDoingWhat<T> = HowToDealTypeVariable<T>
+type WayOneToArrayBound<T> = Array<NowIKnowDoingWhat<T>>;
+type WayTwoToObjectBound<T> = T & NowIKnowDoingWhat<T>;
+type WayThreeToHaveSomeOperation<T> = NowIKnowDoingWhat<T> extends { hungry: boolean } ? 'eat' : 'dead';
+type WayFourToRefactor<T> = keyof NowIKnowDoingWhat<T>;
+// Example 7: Done!
