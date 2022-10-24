@@ -84,4 +84,46 @@ export namespace 循环 {
 
     type Y = (Container & { readonly x: number })["y"]
 
+
+
+    // 普通数组递归
+
+    // example
+    type ArrayStruct<Head extends string, Tail extends string[]> = [Head, ...Tail];
+    type Join<Arr extends string[], Sp extends string>
+        = Arr extends [] ? ''
+        : Arr extends ArrayStruct<infer Head, []> ? Head
+        : Arr extends ArrayStruct<infer Head, infer Tail> ?
+        `${Head}${Sp}${Join<Tail, Sp>}`
+        : never;
+    type Test = Join<['foo', 'bar', 'hello'], ','>
+
+    // my
+    type ArrayAvatar<Head extends string, Tail extends string[]> = [Head, ...Tail];
+
+    type MyJoin<Arr extends string[], Symbol extends string>
+        = Arr extends [] ? ''
+        : Arr extends ArrayAvatar<infer Head, []> ? Head
+        : Arr extends ArrayAvatar<infer Head, infer Tail> ?
+        `${Head}${Symbol}${MyJoin<Tail, Symbol>}`
+        : never
+    type Test0 = MyJoin<['foo', 'bar', 'hello'], '|'>
+
+    type IsEmptyArr<T> = T extends [] ? '' : never
+    type IsOneElementArr<T> = T extends ArrayAvatar<infer Head, []> ? Head : never
+    type Circle<T, Symbol extends string> =
+        T extends ArrayAvatar<infer Head, infer Tail> ?
+        `${Head}${Symbol}${MyJoin<Tail, Symbol>}`
+        : never
+    type AbstractJoinFn<Arr extends string[], Symbol extends string>
+        = IsEmptyArr<Arr> extends '' ?
+        IsOneElementArr<Arr> extends Arr[0] ?
+        Circle<Arr, Symbol> : never : never
+    type Test1 = AbstractJoinFn<['foo', 'bar', 'hello'], '|'>
+    // 尾递归思想
+    // Process(Environment) -> Environment'
+    //    Test(Environment) -> True | False
+    // Loop(Test,Process,Environment) -> if(Test(Environment))
+    //                                   then Loop(Test,Process,Environment)
+    //                                   else Environment
 }
