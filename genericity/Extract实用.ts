@@ -75,10 +75,17 @@ namespace Extract实用 {
 
     // Event param Option 
     type EventName =
-        | { name: 'goHome', by: "car", todo: (peopleNum: number) => void }
+        | { name: 'goHome', by: "car", todo: (peopleNum: number) => void, addition: string }
         | { name: 'goTrip', by: "plane", todo: (planeName: string) => void }
 
-    function eventFire<T extends EventName['name']>(name: T, option: Extract<EventName, { name: T }>['by']) { }
+    function eventFire<T extends EventName['name']>(name: T, option: Extract<EventName, { name: T }>['by'], event?: Extract<EventName, { name: T }>) {
+        switch (name) {
+            case 'goHome': {
+                return (event as Extract<EventName, { name: 'goHome' }>)?.addition
+            }
+
+        }
+    }
 
     eventFire('goHome', 'car');
     eventFire('goTrip', "plane");
@@ -119,8 +126,8 @@ namespace Extract实用 {
     type Mode<T> = EditMode<T> | Other<T>
     type EditMode<T> = { type: 'edit', modes: { normal: T extends { normal: infer R } ? R : never, edit: T extends { edit: infer U } ? U : never } }
     type Other<K> = { type: 'other', modes: { other: K } }
-    type GoMode = <Type extends ModeType,MODE extends Mode<MODE>>(type: Type, modes: Extract<MODE,{type: Type}>['modes']  )=>{}
-    const goMode : GoMode= <Type extends ModeType,MODE extends Mode<MODE>>(type: Type ,modes: Extract<MODE,{type: Type}>['modes'])=>{
+    type GoMode = <Type extends ModeType, MODE extends Mode<MODE>>(type: Type, modes: Extract<MODE, { type: Type }>['modes']) => {}
+    const goMode: GoMode = <Type extends ModeType, MODE extends Mode<MODE>>(type: Type, modes: Extract<MODE, { type: Type }>['modes']) => {
         return {}
     }
 }

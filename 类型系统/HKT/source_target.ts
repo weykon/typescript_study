@@ -147,7 +147,6 @@ type Using = $<UseTheNewSymbol, {}>
 interface PackThisBridge<T, K> extends HKT<K> {
     [target]: Source<this>
 }
-
 interface CarryGeneric extends HKT<unknown> {
     [target]: Source<this>
 }

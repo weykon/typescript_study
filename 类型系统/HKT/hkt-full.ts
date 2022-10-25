@@ -60,6 +60,3 @@ type NewContanierToYY = YY<{ describe: '这样可以达到无限包裹了' }>
 type DataBase = { anything: string }
 type NewThing = DataBase & {newthing: string}
 type SecondThing = DataBase & {newthing: string}
-
-// but i can 
-// interface BaseTHingForHkt extends Hkt<>
