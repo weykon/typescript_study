@@ -83,7 +83,6 @@ namespace Extract实用 {
             case 'goHome': {
                 return (event as Extract<EventName, { name: 'goHome' }>)?.addition
             }
-
         }
     }
 
