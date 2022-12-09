@@ -15,3 +15,11 @@ function DefineAIteratorFn() {
 
 }
 
+
+
+namespace RuntimeForComplex {
+    // if the iterator get the object ending what will happen
+
+
+    // if the object increase new element what will happen
+}
