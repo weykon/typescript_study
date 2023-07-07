@@ -76,7 +76,7 @@ namespace Extract实用 {
     // Event param Option 
     type EventName =
         | { name: 'goHome', by: "car", todo: (peopleNum: number) => void, addition: string }
-        | { name: 'goTrip', by: "plane", todo: (planeName: string) => void }
+        | { name: 'goTrip', by: "plane", todo: (planeName: string) => number }
 
     function eventFire<T extends EventName['name']>(name: T, option: Extract<EventName, { name: T }>['by'], event?: Extract<EventName, { name: T }>) {
         switch (name) {
@@ -89,10 +89,12 @@ namespace Extract实用 {
     eventFire('goHome', 'car');
     eventFire('goTrip', "plane");
 
-    function eventOn<T extends EventName["name"]>(name: T, todo: Extract<EventName, { name: T }>['todo']) { }
+    function eventOn<T extends EventName["name"]>(name: T, todo: Extract<EventName, { name: T }>['todo']) {
+        todo('1' as never)
+    }
 
     eventOn('goHome', (peopleNum: number) => { })
-    eventOn('goTrip', (name: string) => { });
+    eventOn('goTrip', (name: string) => { return 1 });
 
 
     // 开始
