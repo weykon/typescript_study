@@ -16,17 +16,15 @@ export namespace PromiseWaitEvent {
         console.log('Event has been fired');
     }
     waitEvent();
-    
-    
+
+
     let eventTarget1 = new EventTarget();
     let event1 = new Event('myEvent1');
     let promise: any = null
     class EventClass {
-        promise: any
         constructor() {
-            
-            this['promise'] = new Promise((suc, fail) => {
-                eventTarget.addEventListener('myEvent1', function (e) {
+            promise = new Promise((suc, fail) => {
+                eventTarget1.addEventListener('myEvent1', function (e) {
                     suc(true)
                 })
             });
@@ -34,9 +32,9 @@ export namespace PromiseWaitEvent {
         async ready() {
             setTimeout(() => {
                 eventTarget1.dispatchEvent(event1);
-            }, 3 * 1000);
+            }, 2 * 1000);
             console.log('Start waiting for event1');
-            await this.promise!;
+            await promise!;
             console.log('Event has been fired1');
         }
     }
