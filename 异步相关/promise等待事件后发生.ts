@@ -39,4 +39,22 @@ export namespace PromiseWaitEvent {
         }
     }
     new EventClass().ready()
+
+    let finished = false;
+    let eventTarget2 = new EventTarget();
+    let eventTarget3 = new EventTarget();
+    let event2 = new Event('myEvent2');
+    eventTarget2.addEventListener('myEvent2', function (e) {
+        console.log('myEvent2 to eventTarget2')
+    })
+    eventTarget3.addEventListener('myEvent2', function (e) {
+        console.log('myEvent2 to eventTarget3')
+    });
+    setTimeout(() => {
+        eventTarget2.dispatchEvent(event2);
+        eventTarget3.dispatchEvent(event2);
+    }, 2 * 1000);
+    setTimeout(() => {
+        finished ? console.log('finished') : console.log('not finished');
+    }, 1*1000);
 }
