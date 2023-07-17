@@ -78,7 +78,7 @@ export namespace timeoutPromiseRace {
     }
     let temp_wrap: any
     Promise.race([resolve(3, 3).finally(()=>{console.log('finally')}), wrapperReject('timeout', 2, temp_wrap),])
-        .then((n) => { console.log('suc1', n, temp_wrap); ; })
+        .then((n) => { console.log('suc1', n, temp_wrap); })
         .catch((reason) => {
             console.log(reason);
         })
