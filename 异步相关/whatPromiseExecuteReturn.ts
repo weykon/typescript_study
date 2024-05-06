@@ -23,7 +23,7 @@ export namespace wahtPromiseExecuteReturn {
     }, 5 * 1000);
 
 
-    const arr = []
+    const arr = [];
     arr.push(promise1(), promise2());
 
     Promise.all(arr).then((suc) => {

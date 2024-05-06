@@ -16,7 +16,7 @@ namespace AdditionSymbol {
         name: string
         value: Function | any
     }
-    class Event<T>{
+    class Event<T> {
         public static mname: string
         public static options: Option[]
         public Event<T>() {
@@ -42,7 +42,7 @@ namespace AdditionSymbol {
             return option
         }
     }
-    class LaniaoEvent implements Event<LaniaoEvent>{
+    class LaniaoEvent implements Event<LaniaoEvent> {
         public Event<T>(): void {
 
         }
@@ -54,7 +54,7 @@ namespace AdditionSymbol {
         { name: 'asdasd', value: () => { } }
     ));
 
-    
+
 }
 
 
