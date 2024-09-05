@@ -4,7 +4,7 @@ namespace 装饰器中的继承问题 {
 
     @dcrat()
     funcA(self: A) {
-      console.log("A", this);
+      console.log("A this", this);
     }
   }
 
@@ -13,7 +13,7 @@ namespace 装饰器中的继承问题 {
 
     @dcrat()
     funcB(self: B) {
-      console.log("B", this);
+      console.log("B this", this);
     }
   }
 
@@ -28,8 +28,8 @@ namespace 装饰器中的继承问题 {
       let ori = descriptor.value;
 
       descriptor.value = (self: any) => {
-        console.log(target);
-        console.log(self);
+        console.log('target',target);
+        console.log('self',self);
         self.b = 2;
 
         ori.call(self);

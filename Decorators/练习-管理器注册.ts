@@ -6,21 +6,31 @@ abstract class CodeThing {
 function ManagerRegister(target: any) {
     console.log(target.prototype.constructor)
     Manager.CtorList.push(target.prototype.constructor)
+    console.log('Manager.CtorList', Manager.CtorList)
 }
 
 class Manager {
     constructor() {
-        Manager.Inst = this
+        console.log('build up: ')
+        Manager.Inst = this;
+        let count = 0;
         Manager.CtorList.forEach(e => {
-            (<any>this)[e.name] = new e()
-            Manager.ManagersName.push(e.name)
+            console.log('count: ', count += 1);
+            (<any>this)[e.name] = new e();
+            Manager.ManagersName.push(e.name);
+            console.log('Manager.ManagersName:', e.name);
+            console.log('on this : ', (<any>this)[e.name]);
         })
     }
     public static CtorList: Array<{ new(): any }> = []
     public static Inst: Manager
     public static ManagersName: Array<string> = []
     public Init() {
-        let OriginList = Manager.ManagersName.map(u => (<any>this)[u]['Init'])
+        console.log('on Init')
+        let OriginList = Manager.ManagersName.map(u => {
+            console.log('read property:', (<any>this)[u]['Init'].toString(),);
+            return (<any>this)[u]['Init'];
+        })
         const TopFunction = () => {
             console.log('Top Func')
         }
@@ -31,8 +41,11 @@ class Manager {
             TopFunction()
             OriginList[i]()
             BackFunction()
-        })
+        });
+        console.log('reset Init fns : ', Manager.ManagersName.map(e => (<any>this)[e]['Init']['toString']()))
+        return this;
     }
+
 }
 
 @ManagerRegister
@@ -49,5 +62,6 @@ class TerrainManager {
     public Init() { console.log('Origin Terrain') }
 }
 
-
-new Manager()
+console.log(Object.keys(new Manager().Init()))
+// (new Manager().Init() as any)
+//     ['ObjectManager'].Init()
